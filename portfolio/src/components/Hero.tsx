@@ -1,3 +1,72 @@
+import { useState, useEffect, useRef } from 'react';
+
+// Animated Counter Component
+function AnimatedCounter({ target, duration = 2000, suffix = "+" }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef(null);
+  const observerRef = useRef(null);
+
+  useEffect(() => {
+    // Set up Intersection Observer to trigger animation when component is in viewport
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (counterRef.current) {
+      observerRef.current.observe(counterRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime;
+    let animationFrameId;
+
+    const animateCounter = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+      const currentCount = Math.floor(easeOutQuart * target);
+      
+      setCount(currentCount);
+
+      if (percentage < 1) {
+        animationFrameId = requestAnimationFrame(animateCounter);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animateCounter);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [isVisible, target, duration]);
+
+  return (
+    <div ref={counterRef} className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+      {count}{suffix}
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 overflow-hidden">
@@ -72,19 +141,19 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Quick Stats */}
+            {/* Quick Stats - UPDATED WITH ANIMATED COUNTERS */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-12">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">10+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                <AnimatedCounter target={10} duration={1500} suffix="+" />
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">4+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+                <AnimatedCounter target={4} duration={2000} suffix="+" />
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">100%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
+                <AnimatedCounter target={100} duration={2500} suffix="%" />
+                <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Client Satisfaction</div>
               </div>
             </div>
           </div>
