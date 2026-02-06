@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github, Linkedin } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,13 +12,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-gray-900/90 backdrop-blur-md z-50 shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
-            <span className="text-2xl font-bold text-gray-900">Portfolio</span>
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold">IK</span>
+            </div>
+            <span className="text-2xl font-bold text-white">Isaac Kariuki</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -27,19 +29,25 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-300 hover:text-blue-400 font-medium transition-colors"
               >
                 {item.label}
               </a>
             ))}
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+            <a href="https://github.com/aizocraft" className="text-gray-300 hover:text-blue-400 transition">
+              <Github size={24} />
+            </a>
+            <a href="https://linkedin.com/in/isaackariuki" className="text-gray-300 hover:text-blue-400 transition">
+              <Linkedin size={24} />
+            </a>
+            <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold transition transform hover:scale-105">
               Download CV
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700"
+            className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,13 +62,21 @@ export default function Navbar() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-gray-300 hover:text-blue-400 font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition">
+              <div className="flex space-x-4 pt-4">
+                <a href="https://github.com/aizocraft" className="text-gray-300 hover:text-blue-400 transition">
+                  <Github size={24} />
+                </a>
+                <a href="https://linkedin.com/in/isaackariuki" className="text-gray-300 hover:text-blue-400 transition">
+                  <Linkedin size={24} />
+                </a>
+              </div>
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold transition">
                 Download CV
               </button>
             </div>

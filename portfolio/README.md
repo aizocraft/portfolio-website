@@ -72,3 +72,4 @@ Feel free to submit issues and enhancement requests.
 ## License
 
 This project is private and not licensed for public use.
+## 🛠️ Technical Skills
