@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, Mail, MapPin, Phone, MessageSquare, User, Paperclip, Sparkles, CheckCircle, ArrowRight, Globe, Clock } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, MessageSquare, User, Paperclip, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function Contact() {
@@ -10,42 +10,47 @@ export default function Contact() {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [result, setResult] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+    setResult("Sending....");
+    const formDataToSend = new FormData(e.target as HTMLFormElement);
+    formDataToSend.append("access_key", "c60950a6-f19d-465f-b72f-681e1ab34cf9");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formDataToSend
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      (e.target as HTMLFormElement).reset();
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    } else {
+      setResult("Error");
+    }
   };
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["kariukiisaac9110@gmail.com", "aizocraft.tech@gmail.com"],
+      details: ["kariukiisaac911@gmail.com"],
       accent: "from-cyan-500 to-blue-500",
-      action: "mailto:kariukiisaac9110@gmail.com"
+      action: "mailto:kariukiisaac911@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: ["+254 742 820 121", "Available Mon-Fri"],
+      details: ["+254 741 653 862", "Available Mon-Fri"],
       accent: "from-emerald-500 to-green-500",
-      action: "tel:+254742820121"
+      action: "tel:+254741653862"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -212,10 +217,16 @@ export default function Contact() {
                       theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
                     }`}>Fill out the form below and I'll get back to you soon</p>
                   </div>
-                  {isSubmitted && (
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 text-white animate-fade-in">
-                      <CheckCircle className="w-5 h-5" />
-                      <span className="font-medium">Message Sent!</span>
+                  {result && (
+                    <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-white animate-fade-in ${
+                      result === "Form Submitted Successfully"
+                        ? "bg-gradient-to-r from-emerald-500 to-green-500"
+                        : result === "Error"
+                        ? "bg-gradient-to-r from-red-500 to-red-600"
+                        : "bg-gradient-to-r from-blue-500 to-blue-600"
+                    }`}>
+                      {result === "Form Submitted Successfully" && <CheckCircle className="w-5 h-5" />}
+                      <span className="font-medium">{result}</span>
                     </div>
                   )}
                 </div>
@@ -335,14 +346,14 @@ export default function Contact() {
                     </div>
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={result === "Sending...."}
                       className={`group relative px-8 py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed ${
                         theme === 'dark'
                           ? 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600'
                           : 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600'
                       }`}
                     >
-                      {isSubmitting ? (
+                      {result === "Sending...." ? (
                         <span className="flex items-center gap-2">
                           <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                           Sending...
