@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
 // Animated Counter Component
-function AnimatedCounter({ target, duration = 2000, suffix = "+" }) {
+function AnimatedCounter({ target, duration = 2000, suffix = "+" }: { target: number; duration?: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const counterRef = useRef(null);
-  const observerRef = useRef(null);
+  const counterRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     // Set up Intersection Observer to trigger animation when component is in viewport
@@ -32,18 +32,18 @@ function AnimatedCounter({ target, duration = 2000, suffix = "+" }) {
   useEffect(() => {
     if (!isVisible) return;
 
-    let startTime;
-    let animationFrameId;
+    let startTime: number | undefined;
+    let animationFrameId: number;
 
-    const animateCounter = (timestamp) => {
+    const animateCounter = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
+      const progress = timestamp - startTime!;
       const percentage = Math.min(progress / duration, 1);
-      
+
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
       const currentCount = Math.floor(easeOutQuart * target);
-      
+
       setCount(currentCount);
 
       if (percentage < 1) {
@@ -108,7 +108,7 @@ export default function Hero() {
             </h2>
             
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 lg:mb-12 max-w-2xl lg:max-w-none mx-auto lg:mx-0 leading-relaxed">
-              Computer Science student passionate about building scalable web applications, 
+              Computer Science finalist passionate about building scalable web applications, 
               network solutions, and harnessing technology to solve real-world challenges.
               Currently specializing in Full Stack Development and IT Infrastructure.
             </p>
@@ -167,7 +167,7 @@ export default function Hero() {
               {/* Profile Image Container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl">
                 <img 
-                  src="/isaackariuki.png" 
+                  src="finalai.png" 
                   alt="Isaac Kariuki"
                   className="w-full h-full object-cover"
                 />
@@ -196,75 +196,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Custom Animations */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateX(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        @keyframes scroll {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(8px);
-          }
-        }
-        
-        @keyframes ping-slow {
-          75%, 100% {
-            transform: scale(1.5);
-            opacity: 0;
-          }
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-        
-        .animate-slide-up {
-          animation: slide-up 1s ease-out 0.3s both;
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-scroll {
-          animation: scroll 2s ease-in-out infinite;
-        }
-        
-        .animate-ping-slow {
-          animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-      `}</style>
+
     </section>
   );
 }

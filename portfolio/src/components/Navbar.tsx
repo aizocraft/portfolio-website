@@ -53,7 +53,7 @@ export default function Navbar() {
 
   // Download CV handler
   const handleDownloadCV = () => {
-    const cvUrl = '/cv.pdf';
+    const cvUrl = '/Isaac-Kariuki-Resume.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Isaac_Kariuki_CV.pdf';
@@ -65,7 +65,7 @@ export default function Navbar() {
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (isOpen && !(e.target as Element).closest('.mobile-menu') && !(e.target as Element).closest('.menu-button')) {
+      if (isOpen && e.target instanceof Element && !e.target.closest('.mobile-menu') && !e.target.closest('.menu-button')) {
         setIsOpen(false);
       }
     };
@@ -440,7 +440,7 @@ export default function Navbar() {
       </div>
 
       {/* Animation keyframes */}
-      <style jsx>{`
+      <style>{`
         @keyframes shimmer {
           0% {
             background-position: -200% 0;
@@ -449,18 +449,18 @@ export default function Navbar() {
             background-position: 200% 0;
           }
         }
-        
+
         .animate-shimmer {
           animation: shimmer 3s linear infinite;
         }
-        
+
         /* Hide bottom nav on scroll down, show on scroll up */
         @media (max-width: 1024px) {
           .bottom-nav-hidden {
             transform: translateY(100%);
             opacity: 0;
           }
-          
+
           .bottom-nav-visible {
             transform: translateY(0);
             opacity: 1;
