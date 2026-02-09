@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Github, Eye, Zap, ChevronRight, Sparkles, Layers, Globe, Terminal, Database, ArrowRight } from 'lucide-react';
+import {  Github, Eye, Zap, ChevronRight, Sparkles,  ArrowRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const projects = [
@@ -11,9 +11,9 @@ const projects = [
     features: ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'Modern UI'],
     stats: '40% ↑ Engagement',
     accentColor: 'from-cyan-500 to-blue-500',
-    image: '/project.PNG',
-    liveLink: '#',
-    githubLink: '#',
+    image: '/PlasmaWaterAfrica.PNG',
+    liveLink: 'plasmwater.vercel.app',
+    githubLink: 'https://github.com/aizocraft/pwa',
     year: '2024'
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     accentColor: 'from-emerald-500 to-green-500',
     image: '/project.PNG',
     liveLink: '#',
-    githubLink: '#',
+    githubLink: 'https://github.com/aizocraft/agricart',
     year: '2024'
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     accentColor: 'from-orange-500 to-amber-500',
     image: '/project.PNG',
     liveLink: '#',
-    githubLink: '#',
+    githubLink: 'https://github.com/aizocraft/cms',
     year: '2024'
   },
   {
@@ -50,10 +50,10 @@ const projects = [
     features: ['Real-time Data', 'Forecasts', 'Location-based', 'Visualization'],
     stats: 'Real-time Updates',
     accentColor: 'from-purple-500 to-pink-500',
-    image: '/project.PNG',
-    liveLink: '#',
-    githubLink: '#',
-    year: '2023'
+    image: '/KenyaWeatherApp.PNG',
+    liveLink: 'https://kenyaweather-py.onrender.com/',
+    githubLink: 'https://github.com/aizocraft/KenyaWeather.py',
+    year: '2025'
   },
 ];
 
