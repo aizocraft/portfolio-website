@@ -1,10 +1,11 @@
-import { Github, Linkedin, Mail, Heart, ArrowUpRight, Sparkles, ArrowUp, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Sparkles, ArrowUp, ExternalLink, Home, User, Briefcase, MessageCircle } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useState } from 'react';
 
 export default function Footer() {
   const { theme } = useTheme();
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
+  const [hoveredQuick, setHoveredQuick] = useState<string | null>(null);
 
   const socialLinks = [
     {
@@ -25,7 +26,7 @@ export default function Footer() {
     },
     {
       icon: <Mail className="w-5 h-5" />,
-      href: "mailto:kariukiisaac9110@gmail.com",
+      href: "mailto:kariukiisaac911@gmail.com",
       label: "Email",
       color: "hover:text-red-600 dark:hover:text-red-400",
       bgColor: "hover:bg-red-50 dark:hover:bg-red-900/20",
@@ -34,10 +35,38 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
+    {
+      icon: <Home className="w-5 h-5" />,
+      href: "#home",
+      label: "Home",
+      color: "hover:text-gray-900 dark:hover:text-white",
+      bgColor: "hover:bg-gray-100 dark:hover:bg-gray-800",
+      borderColor: "border-gray-200 dark:border-gray-700"
+    },
+    {
+      icon: <User className="w-5 h-5" />,
+      href: "#about",
+      label: "About",
+      color: "hover:text-gray-900 dark:hover:text-white",
+      bgColor: "hover:bg-gray-100 dark:hover:bg-gray-800",
+      borderColor: "border-gray-200 dark:border-gray-700"
+    },
+    {
+      icon: <Briefcase className="w-5 h-5" />,
+      href: "#projects",
+      label: "Projects",
+      color: "hover:text-gray-900 dark:hover:text-white",
+      bgColor: "hover:bg-gray-100 dark:hover:bg-gray-800",
+      borderColor: "border-gray-200 dark:border-gray-700"
+    },
+    {
+      icon: <MessageCircle className="w-5 h-5" />,
+      href: "#contact",
+      label: "Contact",
+      color: "hover:text-gray-900 dark:hover:text-white",
+      bgColor: "hover:bg-gray-100 dark:hover:bg-gray-800",
+      borderColor: "border-gray-200 dark:border-gray-700"
+    }
   ];
 
   const handleBackToTop = () => {
@@ -55,7 +84,7 @@ export default function Footer() {
 
 
         {/* Social Links - Clear and Horizontal */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-6">
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
@@ -64,8 +93,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl border transition-all duration-300 ${
-                  theme === 'dark' 
-                    ? 'bg-gray-800/30 hover:bg-gray-800/50' 
+                  theme === 'dark'
+                    ? 'bg-gray-800/30 hover:bg-gray-800/50'
                     : 'bg-white/30 hover:bg-white/50'
                 } ${social.borderColor} ${social.bgColor}`}
                 aria-label={social.label}
@@ -76,23 +105,60 @@ export default function Footer() {
                   hoveredSocial === social.label ? 'scale-110' : 'scale-100'
                 } transition-transform duration-300`}>
                   <div className={`p-2 rounded-lg transition-all duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-gray-700/50 group-hover:bg-transparent' 
+                    theme === 'dark'
+                      ? 'bg-gray-700/50 group-hover:bg-transparent'
                       : 'bg-gray-100 group-hover:bg-transparent'
                   }`}>
                     {social.icon}
                   </div>
                   <span className={`text-sm font-medium transition-all duration-300 ${
-                    theme === 'dark' 
-                      ? 'text-gray-300 group-hover:text-white' 
+                    theme === 'dark'
+                      ? 'text-gray-300 group-hover:text-white'
                       : 'text-gray-700 group-hover:text-gray-900'
                   } ${social.color}`}>{social.label}</span>
                 </div>
                 <ExternalLink className={`w-3.5 h-3.5 ml-1 transition-all duration-300 ${
-                  hoveredSocial === social.label 
-                    ? 'opacity-100 translate-x-0' 
+                  hoveredSocial === social.label
+                    ? 'opacity-100 translate-x-0'
                     : 'opacity-0 -translate-x-1'
                 } ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Links - Clear and Horizontal */}
+        <div className="flex justify-center mb-12">
+          <div className="flex items-center gap-4">
+            {quickLinks.map((quick) => (
+              <a
+                key={quick.label}
+                href={quick.href}
+                className={`group relative flex items-center gap-3 px-4 py-3 rounded-xl border transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'bg-gray-800/30 hover:bg-gray-800/50'
+                    : 'bg-white/30 hover:bg-white/50'
+                } ${quick.borderColor} ${quick.bgColor}`}
+                aria-label={quick.label}
+                onMouseEnter={() => setHoveredQuick(quick.label)}
+                onMouseLeave={() => setHoveredQuick(null)}
+              >
+                <div className={`flex items-center gap-3 ${
+                  hoveredQuick === quick.label ? 'scale-110' : 'scale-100'
+                } transition-transform duration-300`}>
+                  <div className={`p-2 rounded-lg transition-all duration-300 ${
+                    theme === 'dark'
+                      ? 'bg-gray-700/50 group-hover:bg-transparent'
+                      : 'bg-gray-100 group-hover:bg-transparent'
+                  }`}>
+                    {quick.icon}
+                  </div>
+                  <span className={`text-sm font-medium transition-all duration-300 ${
+                    theme === 'dark'
+                      ? 'text-gray-300 group-hover:text-white'
+                      : 'text-gray-700 group-hover:text-gray-900'
+                  } ${quick.color}`}>{quick.label}</span>
+                </div>
               </a>
             ))}
           </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Download, ChevronRight, Home, User, Briefcase, Layers, Mail, FileText } from 'lucide-react';
+import { Menu, X, Sun, Moon, Download, ChevronRight, Home, User, Layers, Mail, FileText } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function Navbar() {
@@ -12,7 +12,6 @@ export default function Navbar() {
     { id: 'home', label: 'Home', href: '#home', icon: Home },
     { id: 'about', label: 'About', href: '#about', icon: User },
     { id: 'projects', label: 'Projects', href: '#projects', icon: Layers },
-    { id: 'experience', label: 'Experience', href: '#experience', icon: Briefcase },
     { id: 'contact', label: 'Contact', href: '#contact', icon: Mail },
   ];
 
