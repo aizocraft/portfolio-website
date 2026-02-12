@@ -17,29 +17,29 @@ const projects = [
     year: '2024'
   },
   {
-    title: 'AgriCart Platform',
-    tech: ['React', 'Node.js', 'MongoDB', 'REST API', 'Tailwind'],
-    desc: 'Multi-vendor e-commerce platform with inventory and order management system.',
+    title: 'MkulimaHub',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Real-time', 'Video Call', 'Mpesa'],
+    desc: 'Platform connecting farmers to experts with realtime weather, discussion forum, video calls, and Mpesa integration.',
     category: 'Full Stack',
-    features: ['Real-time Updates', 'Payment Integration', 'Admin Dashboard', 'Multi-vendor'],
-    stats: 'Scalable Platform',
-    accentColor: 'from-emerald-500 to-green-500',
-    image: '/project.PNG',
-    liveLink: '#',
-    githubLink: 'https://github.com/aizocraft/agricart',
+    features: ['Real-time Weather', 'Discussion Forum', 'Video Calls', 'Mpesa Integration'],
+    stats: 'Empowering Farmers',
+    accentColor: 'from-green-500 to-emerald-500',
+    image: '/mkulimahub.PNG',
+    liveLink: 'mkulimahub.vercel.app',
+    githubLink: 'https://github.com/aizocraft/mkulimahub',
     year: '2024'
   },
   {
-    title: 'Construction ERP',
-    tech: ['Full Stack', 'CMS', 'Workflow', 'Automation'],
-    desc: 'ERP system automating construction operations with attendance tracking and inventory management.',
-    category: 'Enterprise',
-    features: ['Attendance System', 'Inventory Management', 'Reporting', 'Automation'],
-    stats: 'Automated Workflow',
-    accentColor: 'from-orange-500 to-amber-500',
-    image: '/project.PNG',
-    liveLink: '#',
-    githubLink: 'https://github.com/aizocraft/cms',
+    title: 'Mastered Delights',
+    tech: ['HTML', 'CSS', 'JavaScript', 'E-commerce'],
+    desc: 'Online cake shop with shopping cart, WhatsApp checkout, and beautiful design.',
+    category: 'Web Development',
+    features: ['Shopping Cart', 'WhatsApp Checkout', 'Beautiful Design', 'Responsive'],
+    stats: 'Sweet Success',
+    accentColor: 'from-pink-500 to-rose-500',
+    image: '/MasteredDelights.PNG',
+    liveLink: 'mastered-delights.vercel.app',
+    githubLink: 'https://github.com/aizocraft/mastered-delights',
     year: '2024'
   },
   {
@@ -62,7 +62,7 @@ export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const categories = ['All', 'Web Development', 'Full Stack', 'Enterprise', 'Data Science'];
+  const categories = ['All', 'Web Development', 'Full Stack', 'Data Science'];
   const filteredProjects = activeFilter === 'All' ? projects : projects.filter(project => project.category === activeFilter);
 
   return (
