@@ -20,56 +20,57 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    company: "AizoCraft Inc.",
-    role: "Freelancer",
-    period: "2024 – PRESENT",
+    company: "Codveda Solutions",
+    role: "Intern Software Engineer",
+    period: "Feb 2026 – PRESENT",
     location: "Remote",
     achievements: [
-      "Built Plasma Water Africa's corporate website with 40% engagement boost",
-      "Developed AgriCart: Multi-vendor e-commerce platform",
-      "Created CMS/ERP system for construction operations automation"
+      "django development",
+      "React development",
+      "Python development"
     ],
     link: "https://aizocraft.com",
     highlight: true
   },
   {
     id: 2,
-    company: "TechFlow Solutions",
-    role: "Senior Full Stack Developer",
-    period: "2022 – 2024",
-    location: "San Francisco, CA",
+    company: "Embu Level 5 Hospital",
+    role: "I.T Support Assistant",
+    period: "Jan – Apr 2026",
+    location: "Embu, Kenya",
     achievements: [
-      "Led frontend team of 4 developers for enterprise dashboard",
-      "Reduced load time by 45% through code optimization",
-      "Implemented real-time analytics features with WebSocket"
+      "Provided technical support to hospital staff, resolving 95% of issues on first contact",
+      "Maintained and updated hospital IT infrastructure, ensuring 99.9% uptime",
+      "Trained staff on new software and security protocols, improving overall IT literacy"
+  
     ],
-    link: "#"
+    link: "https://www.embuhospital.go.ke"
   },
   {
     id: 3,
-    company: "DigitalOcean",
-    role: "Frontend Engineer",
-    period: "2021 – 2022",
-    location: "Cambridge, MA",
+    company: "Freelance Projects",
+    role: "Full Stack Developer",
+    period: "2023 – Ongoing",
+    location: "Remote",
     achievements: [
-      "Contributed to cloud control panel UI components",
-      "Improved accessibility score by 30%",
-      "Collaborated on design system implementation"
+      "Developed custom e-commerce solutions for 10+ clients",
+      "Collaborated with clients to understand their needs",
+      "Delivered projects on time and within budget"  
     ],
     link: "#"
   },
   {
     id: 4,
-    company: "StartupHub",
-    role: "Junior Developer",
-    period: "2020 – 2021",
-    location: "Austin, TX",
+    company: "DeKUT",
+    role: "BSc Computer Science Student",
+    period: "2022 – 2026",
+    location: "Nyeri, Kenya",
     achievements: [
-      "Built responsive web applications for 5+ clients",
-      "Integrated third-party APIs and payment gateways",
-      "Mentored 2 intern developers"
+      "Maintained good GPA while leading coding club",
+      "Participated in hackathons and events",
+    
     ],
-    link: "#"
+    link: "https://www.dekut.ac.ke"
   }
 ];
 

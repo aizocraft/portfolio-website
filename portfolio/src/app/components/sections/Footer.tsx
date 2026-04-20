@@ -35,10 +35,10 @@ export function Footer() {
   };
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/username", label: "GitHub", color: "hover:bg-[#333]" },
-    { icon: Linkedin, href: "https://linkedin.com/in/username", label: "LinkedIn", color: "hover:bg-[#0077b5]" },
-    { icon: Twitter, href: "https://twitter.com/username", label: "Twitter", color: "hover:bg-[#1DA1F2]" },
-    { icon: Mail, href: "mailto:isaac@aizocraft.com", label: "Email", color: "hover:bg-[#EA4335]" },
+    { icon: Github, href: "https://github.com/aizocraft", label: "GitHub", color: "hover:bg-[#333]" },
+    { icon: Linkedin, href: "https://linkedin.com/in/kariuki-isaac", label: "LinkedIn", color: "hover:bg-[#0077b5]" },
+    { icon: Twitter, href: "https://x.com/aizotech", label: "Twitter", color: "hover:bg-[#1DA1F2]" },
+    { icon: Mail, href: "mailto:kariukiisaac911@gmail.com", label: "Email", color: "hover:bg-[#EA4335]" },
   ];
 
   const quickLinks = [
