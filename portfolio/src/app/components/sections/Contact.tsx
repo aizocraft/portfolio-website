@@ -25,14 +25,14 @@ const contactInfoData: ContactInfo[] = [
   {
     icon: "Mail",
     label: "Email",
-    value: "isaac.kariuki@aizocraft.com",
-    href: "mailto:isaac.kariuki@aizocraft.com",
+    value: "kariukiisaac911@gmail.com",
+    href: "mailto:kariukiisaac911@gmail.com",
   },
   {
     icon: "Phone",
     label: "Phone",
-    value: "+254 700 123 456",
-    href: "tel:+254700123456",
+    value: "+254 741 653 862",
+    href: "tel:+254741653862",
   },
   {
     icon: "MapPin",
@@ -44,9 +44,9 @@ const contactInfoData: ContactInfo[] = [
 
 // Social links - EASILY EDITABLE
 const socialLinksData: SocialLink[] = [
-  { name: "GitHub", icon: "Github", url: "https://github.com/username" },
-  { name: "LinkedIn", icon: "Linkedin", url: "https://linkedin.com/in/username" },
-  { name: "Twitter", icon: "Twitter", url: "https://twitter.com/username" },
+  { name: "GitHub", icon: "Github", url: "https://github.com/aizocraft" },
+  { name: "LinkedIn", icon: "Linkedin", url: "https://linkedin.com/in/kariuki-isaac" },
+  { name: "Twitter", icon: "Twitter", url: "https://x.com/aizotech" },
 ];
 
 // Availability status
