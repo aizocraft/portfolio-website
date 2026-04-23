@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback, useRef } from "react";
-import { Menu, X, Code2, Moon, Sun, Home, User, Code, FolderGit2, Mail, Sparkles } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Menu, X,  Moon, Sun, Home, User, Code, FolderGit2, Mail, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function Navigation() {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, Calendar, MapPin, ExternalLink, Award, Sparkles, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, ExternalLink, Award, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 
 // ============================================

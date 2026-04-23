@@ -2,8 +2,6 @@ import { Github, Linkedin, Mail, Twitter, Heart, ArrowUp, MapPin, Phone,  } from
 import { useState, useEffect } from "react";
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -25,14 +23,6 @@ export function Footer() {
     }
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      setEmail("");
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }
-  };
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/aizocraft", label: "GitHub", color: "hover:bg-[#333]" },

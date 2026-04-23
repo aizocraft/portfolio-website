@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone, Send, MessageCircle, Clock, CheckCircle, Linkedin,
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useInView } from "motion/react";
-import { sendContactEmails, validateContactForm, initEmailJS, ContactFormData } from "../../../services/emailService";
+import { sendContactEmails, initEmailJS} from "../../../services/emailService";
 
 // ============================================
 // EDITABLE DATA - MODIFY HERE
