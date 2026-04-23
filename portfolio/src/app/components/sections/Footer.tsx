@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter, Heart, ArrowUp, MapPin, Phone, Send, Sparkles } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Heart, ArrowUp, MapPin, Phone,  } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function Footer() {

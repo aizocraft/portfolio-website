@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, Calendar, Award, Code, Server, Database, Globe, Cpu, Sparkles, Zap, Shield, Cloud, Layers } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, Calendar, Award, Code, Server, Database, Globe, Cpu, Cloud} from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 
