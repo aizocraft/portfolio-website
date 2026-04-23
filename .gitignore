@@ -29,3 +29,5 @@ v1
 v2
 
 package-lock.json
+
+.env
