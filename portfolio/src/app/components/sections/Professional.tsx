@@ -27,7 +27,7 @@ const experiences: Experience[] = [
     achievements: [
       "django development",
       "React development",
-      "Python development"
+      "AI development"
     ],
     link: "https://aizocraft.com",
     highlight: true
@@ -41,7 +41,6 @@ const experiences: Experience[] = [
     achievements: [
       "Provided technical support to hospital staff, resolving 95% of issues on first contact",
       "Maintained and updated hospital IT infrastructure, ensuring 99.9% uptime",
-      "Trained staff on new software and security protocols, improving overall IT literacy"
   
     ],
     link: "https://www.embuhospital.go.ke"
@@ -66,8 +65,10 @@ const experiences: Experience[] = [
     period: "2022 – 2026",
     location: "Nyeri, Kenya",
     achievements: [
-      "Maintained good GPA while leading coding club",
-      "Participated in hackathons and events",
+        "Coding clubs and hackathons",
+      "Completed coursework in web development, mobile app development, and cybersecurity",
+      "Completed data structures, algorithms, and software engineering"
+
     
     ],
     link: "https://www.dekut.ac.ke"

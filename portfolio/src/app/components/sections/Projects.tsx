@@ -29,7 +29,7 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  images: string[]; // Multiple images per project
+  images: string[]; 
   technologies: string[];
   icon: string;
   github: string;
@@ -54,8 +54,7 @@ const projectsData: Project[] = [
   {
     id: 1,
     title: "Plasma Water Africa",
-    description: "Corporate website for water solutions company showing services."
-      + " Features include responsive design, user-friendly navigation, and interactive elements.",
+    description: "Corporate website for water solutions company showing services.",
     images: [
       "/portfolio/home.png",
       "/portfolio/services.png",
@@ -63,7 +62,7 @@ const projectsData: Project[] = [
       ],
     technologies: ["React", "Node.js",  "TailwindCSS"],
     icon: "Network",
-    github: "https://github.com/username/plasma-water",
+    github: "https://githuhcom/aizocraft",
     live: "https://plasmawaterafrica.com",
     featured: true,
     stats: [
@@ -79,7 +78,7 @@ const projectsData: Project[] = [
     title: "Plasma Shop",
     description: "E-commerce platform for selling plasma water products with real-time inventory tracking.",
     images: [
-      "/pwa/checkout.png",
+      "/pwa/cartpage.png",
       "/pwa/Home Page.png",
       "/pwa/dashboard.png",
       "/pwa/orders.png",
@@ -96,7 +95,6 @@ const projectsData: Project[] = [
       { label: "Sales", value: "+25%", icon: "TrendingUp" },
       { label: "Products", value: "100+", icon: "ShoppingCart" },
       { label: "Customers", value: "1K+", icon: "Users" },
-      { label: "Reviews", value: "4.8", icon: "Star" },
     ],
     category: "E-Commerce",
     year: "2026",
@@ -104,7 +102,7 @@ const projectsData: Project[] = [
   {
     id: 3,
     title: "Mastered Delights Ecommerce",
-    description: "Cake Shop with whatsapp integration, allowing customers to place orders directly through WhatsApp for a seamless shopping experience.",
+    description: "Cake Shop with whatsapp integration, allowing customers to place orders directly ",
     images: [
        "masterdelights/Hero.png",
         "masterdelights/cart.png",
@@ -120,8 +118,7 @@ const projectsData: Project[] = [
       { label: "Orders", value: "500+", icon: "TrendingUp" },
       { label: "Products", value: "50+", icon: "ShoppingCart" },
       { label: "Customers", value: "300+", icon: "Users" },
-      { label: "Rating", value: "4.7", icon: "Star" },
-  
+          
     ],
     category: "E-Commerce",
     year: "2024",
@@ -129,7 +126,7 @@ const projectsData: Project[] = [
   {
     id: 4,
     title: "Kenya Weather App",
-    description: "Real-time weather application with interactive maps, 5-day forecast using OpenWeather API.",
+    description: "Real-time weather application with interactive maps, 5-day forecast",
     images: [
      " kenyaweather/Capture1.png",
       "kenyaweather/Capture2.png",
@@ -149,7 +146,8 @@ const projectsData: Project[] = [
     category: "Open Source",
     year: "2025",
   },
-  {
+  /* Agripack
+   {
     id: 5,
     title: "Agripack",
     description: "A platform for connecting farmers with buyers, providing real-time market information and facilitating transactions.",
@@ -178,7 +176,8 @@ const projectsData: Project[] = [
           ],
     category: "E-Commerce",
     year: "2026",
-  },
+  }, 
+  */
 ];
 
 const getIcon = (iconName: string, className: string = "w-5 h-5") => {
@@ -544,10 +543,7 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-[#c2d8c4]/20 dark:bg-[#c2d8c4]/10 backdrop-blur-lg border border-[#c2d8c4]/30 dark:border-[#c2d8c4]/20 px-4 py-2 rounded-full mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#222222] dark:text-white" />
-            <span className="text-sm font-semibold text-[#222222] dark:text-white">Featured Projects</span>
-          </div>
+
           <h2 className="text-4xl sm:text-5xl font-bold text-[#222222] dark:text-white mb-4">
             Portfolio Highlights
           </h2>
@@ -617,23 +613,6 @@ export function Projects() {
           </div>
         </motion.div>
 
-        {/* View More Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="text-center mt-10"
-        >
-          <a
-            href="https://github.com/username"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#222222]/60 dark:text-white/60 hover:text-[#222222] dark:hover:text-white transition-colors text-sm group"
-          >
-            <span>View more on GitHub</span>
-            <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

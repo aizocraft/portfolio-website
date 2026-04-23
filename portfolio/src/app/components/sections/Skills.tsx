@@ -212,17 +212,6 @@ export function Skills() {
           </div>
         </motion.div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2, duration: 0.5 }}
-          className="mt-8 text-center"
-        >
-          <p className="text-xs text-[#222222]/40 dark:text-white/40">
-            Continuously learning and expanding my skill set
-          </p>
-        </motion.div>
       </div>
 
       {/* Add shimmer animation */}

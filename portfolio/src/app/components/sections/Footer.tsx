@@ -151,39 +151,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Newsletter - Full width on mobile, separate column on desktop */}
-          <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 relative inline-block">
-              Newsletter
-              <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-[#c2d8c4] rounded-full" />
-            </h3>
-            <p className="text-white/50 text-sm mb-3 leading-relaxed">
-              Get notified about new projects and updates.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                required
-                className="flex-1 px-3 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-[#c2d8c4] focus:outline-none transition-all text-sm placeholder:text-white/30 text-white"
-              />
-              <button
-                type="submit"
-                className="bg-[#c2d8c4] text-[#222222] px-4 py-2 rounded-xl hover:bg-white transition-all duration-300 text-sm font-medium flex items-center gap-1.5 group hover:scale-105"
-              >
-                {isSubmitted ? (
-                  <>Sent! ✓</>
-                ) : (
-                  <>
-                    <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    Join
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
         </div>
 
         {/* Bottom Bar */}
