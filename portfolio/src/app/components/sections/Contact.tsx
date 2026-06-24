@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send, MessageCircle, Clock, CheckCircle, Linkedin, Github, Twitter, AlertCircle, X, Sparkles } from "lucide-react";
+import { Mail, MapPin, Phone, Send, MessageCircle, Clock, CheckCircle, Linkedin, Github, Twitter, AlertCircle, X, Activity } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useInView } from "motion/react";
@@ -216,18 +216,18 @@ export function Contact() {
 
   return (
     <>
-      <section id="contact" className="py-20 sm:py-28 bg-gradient-to-b from-white via-[#c2d8c4]/5 to-white dark:from-[#0a0a0a] dark:via-[#1a1a2e]/20 dark:to-[#0a0a0a] relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <section id="contact" className="py-20 sm:py-28 bg-white dark:bg-[#0a0a0a] relative overflow-hidden">
+        {/* Minimal background */}
+        <div className="absolute inset-0 pointer-events-none">
           <motion.div
             animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, -30, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-40 -left-40 w-96 h-96 bg-[#c2d8c4]/10 dark:bg-[#c2d8c4]/5 rounded-full blur-3xl"
+            className="absolute -top-40 -left-40 w-96 h-96 bg-[#2b6cb0]/10 dark:bg-[#0b1b2b]/60 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ scale: [1, 1.3, 1], x: [0, -50, 0], y: [0, 30, 0] }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#c2d8c4]/8 dark:bg-[#c2d8c4]/3 rounded-full blur-3xl"
+            className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#2b6cb0]/10 dark:bg-[#0b1b2b]/50 rounded-full blur-3xl"
           />
         </div>
         
@@ -240,10 +240,10 @@ export function Contact() {
             className="text-center mb-12"
           >
 
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-white/90 dark:to-white bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Let's Work Together
             </h2>
-            <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#c2d8c4] to-transparent mx-auto mb-5" />
+            <div className="w-20 h-0.5 bg-[#c2d8c4]/60 mx-auto mb-5" />
             <p className="text-gray-600 dark:text-white/60 max-w-2xl mx-auto text-sm sm:text-base">
               Have a project in mind? I'd love to hear from you. 
             </p>
@@ -269,7 +269,7 @@ export function Contact() {
                     whileHover={{ x: 5, scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-11 h-11 bg-gradient-to-br from-[#c2d8c4]/30 to-[#c2d8c4]/10 dark:from-[#c2d8c4]/20 dark:to-[#c2d8c4]/5 rounded-lg flex items-center justify-center group-hover:bg-[#c2d8c4] group-hover:rotate-12 transition-all duration-300">
+                    <div className="w-11 h-11 bg-[#2b6cb0]/10 dark:bg-[#0b1b2b] rounded-lg flex items-center justify-center border border-[#c2d8c4]/20 group-hover:bg-[#2b6cb0]/20 group-hover:border-[#2b6cb0]/40 transition-all duration-300">
                       {getIcon(info.icon, "w-5 h-5 text-gray-700 dark:text-white group-hover:text-white dark:group-hover:text-gray-900")}
                     </div>
                     <div>
@@ -287,10 +287,10 @@ export function Contact() {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-[#1a1a2e] dark:to-[#0a0a0a] rounded-2xl p-6 text-white shadow-xl"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c2d8c4]/10 rounded-full blur-2xl" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2b6cb0]/10 rounded-full blur-2xl" />
                 <div className="relative z-10">
                   <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#c2d8c4]" />
+                    <Activity className="w-4 h-4 text-[#2b6cb0] dark:text-[#8ecae6]" />
                     Availability
                   </h3>
                   <p className="text-sm text-white/80 mb-4 leading-relaxed">
@@ -298,8 +298,8 @@ export function Contact() {
                   </p>
                   <div className="flex items-center gap-2 mb-3 p-2 bg-white/5 rounded-lg">
                     <div className="relative">
-                      <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
-                      <div className="absolute inset-0 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping opacity-75" />
+                      <div className="w-2.5 h-2.5 bg-[#2b6cb0] rounded-full animate-pulse" />
+                      <div className="absolute inset-0 w-2.5 h-2.5 bg-[#2b6cb0] rounded-full animate-ping opacity-75" />
                     </div>
                     <span className="text-sm font-medium">{availabilityData.status}</span>
                   </div>

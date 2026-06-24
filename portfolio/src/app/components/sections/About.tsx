@@ -1,16 +1,17 @@
-import { Code2, ArrowRight,Briefcase, Award, Users, Heart, Target, Zap, Coffee, Sparkles, Shield, Rocket, Globe, Cpu } from "lucide-react";
+import { Code2, ArrowRight,Briefcase, Users, Heart, Target, Zap, Coffee, Shield, Rocket, Cpu } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+
 
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const qualities = [
-    { icon: Heart, text: "Passionate about code quality", gradient: "from-rose-500/20 to-rose-500/5" },
-    { icon: Target, text: "Results-driven approach", gradient: "from-blue-500/20 to-blue-500/5" },
-    { icon: Zap, text: "Fast problem solver", gradient: "from-amber-500/20 to-amber-500/5" },
-    { icon: Coffee, text: "Always learning", gradient: "from-emerald-500/20 to-emerald-500/5" },
+    { icon: Heart, text: "Passionate about code quality", color: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-300" },
+    { icon: Target, text: "Results-driven approach", color: "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300" },
+    { icon: Zap, text: "Fast problem solver", color: "bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-300" },
+    { icon: Coffee, text: "Always learning", color: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" },
   ];
 
   const stats = [
@@ -23,29 +24,12 @@ export function About() {
   return (
     <section 
       id="about" 
-      className="py-20 sm:py-28 bg-gradient-to-br from-white via-[#c2d8c4]/3 to-white dark:from-[#0a0a0a] dark:via-[#1a1a2e]/20 dark:to-[#0a0a0a] relative overflow-hidden"
+      className="py-20 sm:py-28 bg-white dark:bg-[#0a0a0a] relative overflow-hidden"
     >
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#c2d8c4]/15 to-transparent rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.3, 1], x: [0, -40, 0], y: [0, 30, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#c2d8c4]/10 to-transparent rounded-full blur-3xl"
-        />
-        </div>
-        {/* Grid Pattern Overlay */}
-        <div 
-              className="absolute inset-0 opacity-30 pointer-events-none"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23c2d8c4' stroke-width='0.5' stroke-opacity='0.05'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")`,
-                backgroundRepeat: "repeat",
-              }}
-            />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(194,216,196,0.35)_1px,transparent_0)] [background-size:28px_28px] opacity-30 dark:opacity-20" />
+      </div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -58,11 +42,11 @@ export function About() {
           >
             <div className="relative group">
               {/* Animated Gradient Border */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-3 rounded-2xl bg-gradient-to-r from-[#c2d8c4] via-[#8fbc8f] to-[#c2d8c4] opacity-40 blur-md group-hover:opacity-70 transition-opacity duration-500"
-              />
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-3 rounded-2xl border border-[#c2d8c4]/40 opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                  />
               
               {/* Main Image Container with Glassmorphism */}
               <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-2">
@@ -91,7 +75,7 @@ export function About() {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-5 -right-5 p-2 bg-white/80 dark:bg-[#1a1a2e]/80 backdrop-blur-md rounded-xl shadow-lg border border-[#c2d8c4]/30"
               >
-                <Rocket className="w-5 h-5 text-[#c2d8c4]" />
+                  <Rocket className="w-5 h-5 text-[#2b6cb0] dark:text-[#8ecae6]" />
               </motion.div>
               <motion.div
                 animate={{ y: [0, 12, 0], rotate: [0, -5, 0] }}
@@ -117,21 +101,17 @@ export function About() {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="space-y-3"
             >
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#c2d8c4]/20 to-transparent backdrop-blur-sm border border-[#c2d8c4]/30 px-4 py-2 rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-[#c2d8c4]" />
-                <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-[#222222] to-[#444444] dark:from-white dark:to-white/80 bg-clip-text text-transparent">
+              <div className="inline-flex items-center gap-2 bg-white/60 dark:bg-[#1a1a2e]/40 border border-[#c2d8c4]/30 px-4 py-2 rounded-full">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#2b6cb0] dark:bg-[#8ecae6]" />
+                <span className="text-xs sm:text-sm font-semibold text-[#222222] dark:text-white/90">
                   About Me
                 </span>
               </div>
               
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-[#222222] via-[#444444] to-[#222222] dark:from-white dark:via-white/90 dark:to-white bg-clip-text text-transparent">
-                  Transforming Ideas
-                </span>
+                <span className="text-[#222222] dark:text-white">Transforming Ideas</span>
                 <br />
-                <span className="bg-gradient-to-r from-[#c2d8c4] to-[#8fbc8f] bg-clip-text text-transparent">
-                  Into Digital Reality
-                </span>
+                <span className="text-[#2b6cb0] dark:text-[#8ecae6]">Into Digital Reality</span>
               </h2>
             </motion.div>
 
@@ -173,7 +153,7 @@ export function About() {
                   transition={{ delay: 0.45 + index * 0.1, duration: 0.4 }}
                   className="group relative overflow-hidden bg-white/50 dark:bg-[#1a1a2e]/50 backdrop-blur-md rounded-xl border border-[#c2d8c4]/20 p-3 hover:border-[#c2d8c4]/40 transition-all duration-300"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  <div className="absolute inset-0 bg-[#2b6cb0]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="flex items-center gap-2">
                     <div className="p-1.5 rounded-lg bg-[#c2d8c4]/20">
                       <stat.icon className="w-4 h-4 text-[#c2d8c4]" />
@@ -201,10 +181,10 @@ export function About() {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.6 + index * 0.08, duration: 0.4 }}
                   whileHover={{ y: -2, scale: 1.02 }}
-                  className={`flex items-center gap-1.5 bg-gradient-to-r ${quality.gradient} backdrop-blur-sm border border-[#c2d8c4]/30 px-3 py-1.5 rounded-full cursor-default`}
+                  className={`flex items-center gap-1.5 backdrop-blur-sm border border-[#c2d8c4]/30 px-3 py-1.5 rounded-full cursor-default ${quality.color}`}
                 >
-                  <quality.icon className="w-3.5 h-3.5 text-[#c2d8c4]" />
-                  <span className="text-xs text-[#222222] dark:text-white/80 font-medium">{quality.text}</span>
+                  <quality.icon className="w-3.5 h-3.5" />
+                  <span className="text-xs font-medium">{quality.text}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -220,14 +200,14 @@ export function About() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="group relative overflow-hidden bg-gradient-to-r from-[#222222] to-[#333333] dark:from-[#c2d8c4] dark:to-[#b8d4ba] text-white dark:text-[#1a1a1a] px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                className="group relative overflow-hidden bg-[#222222] text-white dark:bg-[#e9eef2] dark:text-[#111827] px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 border border-[#c2d8c4]/20 hover:border-[#c2d8c4]/40"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Let's Work Together
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#c2d8c4] to-[#8fbc8f] dark:from-white dark:to-white/80"
+                  className="absolute inset-0 bg-[#c2d8c4]/10"
                   initial={{ x: "100%" }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}

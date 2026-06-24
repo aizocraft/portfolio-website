@@ -45,10 +45,10 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#1a1a1a] to-[#222222] text-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#c2d8c4]/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#c2d8c4]/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+    <footer className="bg-[#1a1a1a] text-white relative overflow-hidden">
+      {/* Minimal background ornaments */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2b6cb0]/5 rounded-full blur-3xl opacity-60" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#2b6cb0]/10 rounded-full blur-3xl opacity-50" style={{ animationDelay: "1s" }} />
       
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />

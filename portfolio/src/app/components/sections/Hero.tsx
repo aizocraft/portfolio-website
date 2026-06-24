@@ -121,64 +121,13 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-50 dark:from-[#0a0a0a] dark:via-[#0f0f1a] dark:to-[#0a0a0a]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#0a0a0a]"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Gradient Orbs */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#c2d8c4]/15 to-transparent rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.3, 1], x: [0, -40, 0], y: [0, 20, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-l from-[#c2d8c4]/10 to-transparent rounded-full blur-3xl"
-        />
-        
-        {/* Particles */}
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full bg-[#c2d8c4]/20 dark:bg-[#c2d8c4]/15"
-            style={{
-              left: `${particle.x}%`,
-              top: `${particle.y}%`,
-              width: particle.size,
-              height: particle.size,
-            }}
-            animate={{
-              y: [0, -40, 0, 40, 0],
-              x: [0, 25, 0, -25, 0],
-              opacity: [0.1, 0.4, 0.1],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-        
-        {/* Floating Tech Icons */}
-        <div className="hidden lg:block">
-          {techIcons.map((item, idx) => (
-            <motion.div
-              key={idx}
-              animate={{ y: [0, -20, 0], x: [0, 15, 0], rotate: [0, 5, 0] }}
-              transition={{ duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay }}
-              className="absolute"
-              style={{ left: item.x, top: item.y }}
-            >
-              <div className="p-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-[#c2d8c4]/20">
-                <item.icon className="w-5 h-5 text-[#c2d8c4]" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* Classic minimal background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle static dots */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(194,216,196,0.35)_1px,transparent_0)] [background-size:28px_28px] opacity-30 dark:opacity-20" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full z-10">
@@ -190,36 +139,16 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="space-y-6 text-center lg:text-left"
           >
-            {/* Availability Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/80 dark:bg-[#1a1a2e]/80 backdrop-blur-xl border border-[#c2d8c4]/30 px-4 py-2 rounded-full mx-auto lg:mx-0 w-fit"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="relative w-2 h-2"
-              >
-                <div className="absolute inset-0 bg-emerald-500 rounded-full shadow-lg shadow-emerald-500/50" />
-                <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-75" />
-              </motion.div>
-              <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-white/70 bg-clip-text text-transparent">
-                Available for work
-              </span>
-            </motion.div>
 
             {/* Name */}
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-                <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-white/90 dark:to-white bg-clip-text text-transparent">
-                  Isaac Kariuki
-                </span>
+                <span className="text-gray-900 dark:text-white">Isaac Kariuki</span>
               </h1>
             </motion.div>
 
@@ -235,13 +164,13 @@ export function Hero() {
                   I'm a
                 </span>
                 <div className="relative">
-                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#c2d8c4] to-[#8fbc8f] dark:from-[#c2d8c4] dark:to-[#a8d5a8] bg-clip-text text-transparent">
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
                     {displayText}
                   </span>
                   <motion.span
                     animate={{ opacity: [1, 0, 1] }}
                     transition={{ duration: 0.8, repeat: Infinity }}
-                    className="absolute -right-3 top-0 w-0.5 h-full bg-gradient-to-b from-[#c2d8c4] to-[#8fbc8f]"
+                    className="absolute -right-3 top-0 w-0.5 h-full bg-[#c2d8c4] dark:bg-[#c2d8c4]"
                   />
                 </div>
               </div>
