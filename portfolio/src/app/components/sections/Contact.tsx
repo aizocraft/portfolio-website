@@ -45,7 +45,7 @@ const socialLinksData: SocialLink[] = [
 ];
 
 const availabilityData = {
-  status: "Available for work",
+
   message:
     "Currently available for freelance projects and full-time opportunities. Let's create something amazing together!",
   responseTime: "Response within 24 hours",
@@ -245,9 +245,7 @@ export function Contact() {
               Let's Work Together
             </h2>
             <div className="w-20 h-0.5 bg-[#c2d8c4]/70 mx-auto mb-5" />
-            <p className="text-[#222222]/70 dark:text-[#c2d8c4]/70 max-w-2xl mx-auto text-sm sm:text-base">
-              Have a project in mind? I'd love to hear from you.
-            </p>
+           
           </motion.div>
 
           <div className="grid lg:grid-cols-5 gap-8">
@@ -294,17 +292,7 @@ export function Contact() {
                     Availability
                   </h3>
                   <p className="text-sm text-[#c2d8c4]/80 mb-4 leading-relaxed">{availabilityData.message}</p>
-                  <div className="flex items-center gap-2 mb-3 p-2 bg-[#c2d8c4]/10 rounded-lg">
-                    <div className="relative">
-                      <div className="w-2.5 h-2.5 bg-[#c2d8c4] rounded-full animate-pulse" />
-                      <div className="absolute inset-0 w-2.5 h-2.5 bg-[#c2d8c4] rounded-full animate-ping opacity-75" />
-                    </div>
-                    <span className="text-sm font-medium">{availabilityData.status}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-[#c2d8c4]/60">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{availabilityData.responseTime}</span>
-                  </div>
+                  
                 </div>
               </motion.div>
 

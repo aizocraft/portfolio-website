@@ -444,7 +444,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 py-3 border-y border-[#c2d8c4]/20 dark:border-[#c2d8c4]/10">
+        <div className="grid grid-cols-3 gap-2 py-3 border-y border-[#c2d8c4]/20 dark:border-[#c2d8c4]/10 display:none">
           {project.stats.map((stat, statIndex) => (
             <div key={statIndex} className="text-center">
               <div className="flex justify-center mb-1 text-[#c2d8c4]">
