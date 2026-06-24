@@ -21,8 +21,8 @@ const contactInfoData: ContactInfo[] = [
   {
     icon: "Mail",
     label: "Email",
-    value: "kariukiisaac911@gmail.com",
-    href: "mailto:kariukiisaac911@gmail.com",
+    value: "isaacngatho.dev@gmail.com",
+    href: "mailto:isaacngatho.dev@gmail.com",
   },
   {
     icon: "Phone",

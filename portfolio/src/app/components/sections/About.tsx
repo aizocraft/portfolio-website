@@ -17,8 +17,8 @@ export function About() {
   const stats = [
     { icon: Code2, value: "20+", label: "Technologies", color: "" },
     { icon: Briefcase, value: "15+", label: "Projects Completed", color: "" },
-    { icon: Users, value: "12+", label: "Happy Clients", color: "" },
-    { icon: Shield, value: "100%", label: "Secure Delivery", color: "" },
+    //{ icon: Users, value: "12+", label: "Happy Clients", color: "" },
+    //{ icon: Shield, value: "100%", label: "Secure Delivery", color: "" },
   ];
 
   return (
@@ -51,7 +51,8 @@ export function About() {
               {/* Main Image Container with Glassmorphism */}
               <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-2">
                 <img
-                  src="/isaac_image.jpg"
+                  src="/isaac_image1.png"
+                 // src="/isaac_image.jpg"
                   alt="Isaac Kariuki - Full Stack Developer"
                   className="w-full max-w-md lg:max-w-full h-auto object-contain rounded-xl relative z-10 transition-transform duration-500 group-hover:scale-105"
                   style={{ filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.1))" }}
@@ -127,7 +128,7 @@ export function About() {
                 <span className="text-[#222222] dark:text-white font-medium"> high-performance web applications </span> 
                 and <span className="text-[#222222] dark:text-white font-medium">robust network infrastructure</span>.
               </p>
-              <p className="leading-relaxed text-base">
+              <p className="leading-relaxed text-base display:none">
                 I build with <span className="text-[#222222] dark:text-white font-medium">Laravel, React, and Node.js</span>, choosing the right database for each job — 
                 <span className="text-[#222222] dark:text-white font-medium"> PostgreSQL, MongoDB, MySQL, or Redis</span>. 
                 My networking background (TCP/IP, DNS, routing) means I don't just write code — I architect systems that stay online, fast, and secure.

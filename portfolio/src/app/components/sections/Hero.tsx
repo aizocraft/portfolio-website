@@ -104,7 +104,7 @@ export function Hero() {
   const socialLinks = [
     { icon: Github, href: "https://github.com/aizocraft", label: "GitHub", delay: 0.75 },
     { icon: Linkedin, href: "https://linkedin.com/in/kariuki-isaac", label: "LinkedIn", delay: 0.8 },
-    { icon: Mail, href: "mailto:kariukiisaac911@gmail.com", label: "Email", delay: 0.85 },
+    { icon: Mail, href: "mailto:isaacngatho.dev@gmail.com", label: "Email", delay: 0.85 },
   ];
 
   return (
@@ -280,7 +280,8 @@ export function Hero() {
                   <div className="absolute inset-0 bg-[#c2d8c4]/10 rounded-full blur-2xl" />
 
                   <img
-                    src="/isaac_potrait.jpg"
+                    src="/isaac_potrait1.png"
+                    //src="/isaac_potrait.jpg"
                     alt="Isaac Kariuki"
                     className="w-full h-full object-contain drop-shadow-2xl relative z-10 rounded-full"
                     loading="eager"
