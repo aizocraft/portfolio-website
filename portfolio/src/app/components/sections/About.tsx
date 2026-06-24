@@ -8,27 +8,27 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const qualities = [
-    { icon: Heart, text: "Passionate about code quality", color: "bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-300" },
-    { icon: Target, text: "Results-driven approach", color: "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300" },
-    { icon: Zap, text: "Fast problem solver", color: "bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-300" },
-    { icon: Coffee, text: "Always learning", color: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300" },
+    { icon: Heart, text: "Passionate about code quality", color: "" },
+    { icon: Target, text: "Results-driven approach", color: "" },
+    { icon: Zap, text: "Fast problem solver", color: "" },
+    { icon: Coffee, text: "Always learning", color: "" },
   ];
 
   const stats = [
-    { icon: Code2, value: "20+", label: "Technologies", color: "from-cyan-500 to-blue-500" },
-    { icon: Briefcase, value: "15+", label: "Projects Completed", color: "from-violet-500 to-purple-500" },
-    { icon: Users, value: "12+", label: "Happy Clients", color: "from-emerald-500 to-teal-500" },
-    { icon: Shield, value: "100%", label: "Secure Delivery", color: "from-indigo-500 to-blue-500" },
+    { icon: Code2, value: "20+", label: "Technologies", color: "" },
+    { icon: Briefcase, value: "15+", label: "Projects Completed", color: "" },
+    { icon: Users, value: "12+", label: "Happy Clients", color: "" },
+    { icon: Shield, value: "100%", label: "Secure Delivery", color: "" },
   ];
 
   return (
     <section 
       id="about" 
-      className="py-20 sm:py-28 bg-white dark:bg-[#0a0a0a] relative overflow-hidden"
+      className="py-20 sm:py-28 bg-white dark:bg-[#222222] relative overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(194,216,196,0.35)_1px,transparent_0)] [background-size:28px_28px] opacity-30 dark:opacity-20" />
+        <div className="absolute inset-0 opacity-30 dark:opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(194,216,196,0.35) 1px, rgba(194,216,196,0.0) 1px)', backgroundSize: '28px 28px' }} />
       </div>
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -102,7 +102,7 @@ export function About() {
               className="space-y-3"
             >
               <div className="inline-flex items-center gap-2 bg-white/60 dark:bg-[#1a1a2e]/40 border border-[#c2d8c4]/30 px-4 py-2 rounded-full">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#2b6cb0] dark:bg-[#8ecae6]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#c2d8c4]" />
                 <span className="text-xs sm:text-sm font-semibold text-[#222222] dark:text-white/90">
                   About Me
                 </span>
@@ -111,7 +111,7 @@ export function About() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="text-[#222222] dark:text-white">Transforming Ideas</span>
                 <br />
-                <span className="text-[#2b6cb0] dark:text-[#8ecae6]">Into Digital Reality</span>
+                <span className="text-[#222222] dark:text-[#c2d8c4]">Into Digital Reality</span>
               </h2>
             </motion.div>
 

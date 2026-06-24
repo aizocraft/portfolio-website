@@ -19,26 +19,27 @@ export function Hero() {
     document.body.removeChild(link);
   }, []);
 
-  // Roles for typewriter effect
-  const roles = useMemo(() => [
-    "Full Stack Developer",
-    "Laravel Expert",
-    "React Specialist",
-    "Network Engineer",
-    "Database Architect",
-    "Cloud Engineer"
-  ], []);
+  const roles = useMemo(
+    () => [
+      "Full Stack Developer",
+      "Laravel Expert",
+      "React Specialist",
+      "Network Engineer",
+      "Database Architect",
+      "Cloud Engineer",
+    ],
+    []
+  );
 
   const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
 
-  // Optimized typewriter effect
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const currentRole = roles[roleIndex];
-    
+
     if (isWaiting) {
       timeout = setTimeout(() => {
         setIsWaiting(false);
@@ -46,30 +47,25 @@ export function Hero() {
       }, 2000);
       return () => clearTimeout(timeout);
     }
-    
+
     if (!isDeleting && displayText.length < currentRole.length) {
-      // Typing
       timeout = setTimeout(() => {
         setDisplayText(currentRole.slice(0, displayText.length + 1));
       }, 100);
     } else if (!isDeleting && displayText.length === currentRole.length) {
-      // Wait before deleting
       setIsWaiting(true);
     } else if (isDeleting && displayText.length > 0) {
-      // Deleting
       timeout = setTimeout(() => {
         setDisplayText(displayText.slice(0, -1));
       }, 50);
     } else if (isDeleting && displayText.length === 0) {
-      // Move to next role
       setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }
-    
+
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, isWaiting, roleIndex, roles]);
 
-  // Mouse tracking for 3D effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400 });
@@ -77,24 +73,26 @@ export function Hero() {
   const rotateX = useTransform(smoothY, [-0.5, 0.5], [15, -15]);
   const rotateY = useTransform(smoothX, [-0.5, 0.5], [-15, 15]);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  }, [mouseX, mouseY]);
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      mouseX.set(x);
+      mouseY.set(y);
+    },
+    [mouseX, mouseY]
+  );
 
-  // Particles with reduced count for performance
-  const particles = useMemo(() => 
-    Array.from({ length: 15 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      duration: 10 + Math.random() * 15,
-      delay: Math.random() * 5,
-      size: 2 + Math.random() * 4,
-    })), []
+  // kept for potential future use; reduce re-renders (still memoized)
+  useMemo(
+    () =>
+      Array.from({ length: 15 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+      })),
+    []
   );
 
   const stats = [
@@ -109,50 +107,41 @@ export function Hero() {
     { icon: Mail, href: "mailto:kariukiisaac911@gmail.com", label: "Email", delay: 0.85 },
   ];
 
-  const techIcons = [
-    { icon: Code, x: "5%", y: "20%", delay: 0, duration: 6 },
-    { icon: Server, x: "90%", y: "75%", delay: 1, duration: 7 },
-    { icon: Database, x: "8%", y: "70%", delay: 2, duration: 5.5 },
-    { icon: Globe, x: "88%", y: "25%", delay: 1.5, duration: 8 },
-    { icon: Cpu, x: "12%", y: "45%", delay: 0.8, duration: 6.5 },
-    { icon: Cloud, x: "85%", y: "55%", delay: 2.5, duration: 7 },
-  ];
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#0a0a0a]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#222222]"
       onMouseMove={handleMouseMove}
     >
-      {/* Classic minimal background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle static dots */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(194,216,196,0.35)_1px,transparent_0)] [background-size:28px_28px] opacity-30 dark:opacity-20" />
+        <div
+          className="absolute inset-0 opacity-30 dark:opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(194,216,196,0.35) 1px, rgba(194,216,196,0.0) 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="space-y-6 text-center lg:text-left"
           >
-
-            {/* Name */}
-
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-                <span className="text-gray-900 dark:text-white">Isaac Kariuki</span>
+                <span className="text-[#222222] dark:text-[#c2d8c4]">Isaac Kariuki</span>
               </h1>
             </motion.div>
 
-            {/* Typewriter Effect */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -160,11 +149,11 @@ export function Hero() {
               className="h-16 sm:h-20 flex items-center justify-center lg:justify-start"
             >
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-white/60">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#222222]/70 dark:text-[#c2d8c4]/70">
                   I'm a
                 </span>
                 <div className="relative">
-                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#222222] dark:text-[#c2d8c4]">
                     {displayText}
                   </span>
                   <motion.span
@@ -176,21 +165,21 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-base sm:text-lg text-gray-600 dark:text-white/70 max-w-xl leading-relaxed mx-auto lg:mx-0"
+              className="text-base sm:text-lg text-[#222222]/70 dark:text-[#c2d8c4]/70 max-w-xl leading-relaxed mx-auto lg:mx-0"
             >
               Building high-performance web applications with{' '}
-              <span className="text-gray-900 dark:text-white font-semibold">Laravel, React & Node.js</span>
+              <span className="text-[#222222] dark:text-[#c2d8c4] font-semibold">
+                Laravel, React & Node.js
+              </span>
               , powered by{' '}
-              <span className="text-gray-900 dark:text-white font-semibold">cloud infrastructure</span>
-              . I ensure your app is fast, secure, and always online.
+              <span className="text-[#222222] dark:text-[#c2d8c4] font-semibold">cloud infrastructure</span>. I
+              ensure your app is fast, secure, and always online.
             </motion.p>
 
-            {/* Stats */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3">
               {stats.map((stat, idx) => (
                 <motion.div
@@ -198,16 +187,17 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: stat.delay, duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-white/60 dark:bg-[#1a1a2e]/60 backdrop-blur-md rounded-full border border-[#c2d8c4]/20"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  className="flex items-center gap-2 px-3 py-1.5 bg-[#222222]/5 dark:bg-[#c2d8c4]/10 rounded-full border border-[#c2d8c4]/20"
                 >
                   <stat.icon className="w-3.5 h-3.5 text-[#c2d8c4]" />
-                  <span className="text-xs sm:text-sm text-gray-700 dark:text-white/80 font-medium">{stat.label}</span>
+                  <span className="text-xs sm:text-sm text-[#222222] dark:text-[#c2d8c4]/90 font-medium">
+                    {stat.label}
+                  </span>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -215,36 +205,34 @@ export function Hero() {
               className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollToSection("projects")}
-                className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800 dark:from-[#c2d8c4] dark:to-[#b8d4ba] text-white dark:text-gray-900 px-6 py-3 rounded-xl font-semibold shadow-lg"
+                className="group relative overflow-hidden bg-[#222222] text-[#c2d8c4] px-6 py-3 rounded-xl font-semibold shadow-lg border border-[#c2d8c4]/30 transition-all"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   View Projects
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-[#c2d8c4] to-[#8fbc8f] dark:from-white dark:to-white/80"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0 }}
+                  className="absolute inset-0 bg-[#c2d8c4]/10"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
                 />
               </motion.button>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleDownloadCV}
-                className="group bg-white/80 dark:bg-[#1a1a2e]/80 backdrop-blur-xl border-2 border-[#c2d8c4]/30 text-gray-900 dark:text-white px-6 py-3 rounded-xl font-semibold hover:border-[#c2d8c4]/60 transition-all flex items-center gap-2 shadow-lg"
+                className="group bg-[#c2d8c4]/15 text-[#222222] dark:text-[#c2d8c4] px-6 py-3 rounded-xl font-semibold border border-[#c2d8c4]/40 transition-all flex items-center gap-2 shadow-sm hover:shadow-lg"
               >
                 <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
                 Download CV
               </motion.button>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -257,12 +245,12 @@ export function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1 }}
+                  whileHover={{ y: -3, scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: social.delay, duration: 0.5 }}
-                  className={`w-10 h-10 bg-white/80 dark:bg-[#1a1a2e]/80 backdrop-blur-xl border border-[#c2d8c4]/30 rounded-xl flex items-center justify-center transition-all duration-300 text-gray-700 dark:text-white shadow-sm hover:shadow-md`}
+                  className="w-10 h-10 bg-[#222222]/5 dark:bg-[#c2d8c4]/10 border border-[#c2d8c4]/30 rounded-xl flex items-center justify-center transition-all text-[#222222] dark:text-[#c2d8c4] hover:bg-[#c2d8c4]/15"
                 >
                   <social.icon className="w-4 h-4" />
                 </motion.a>
@@ -270,7 +258,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Image with 3D Effect */}
           <motion.div
             style={{ rotateX, rotateY, perspective: 1000 }}
             className="relative flex justify-center items-center mt-8 lg:mt-0"
@@ -278,24 +265,20 @@ export function Hero() {
             <div className="relative">
               <div className="relative z-10">
                 <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
-                  {/* Animated Border */}
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     className="absolute inset-0 rounded-full"
                     style={{
-                      background: "conic-gradient(from 0deg, #c2d8c4, transparent, #c2d8c4, transparent, #c2d8c4)",
                       padding: "2px",
-                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                      WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                      WebkitMaskComposite: "xor",
-                      maskComposite: "exclude",
+                      borderRadius: "9999px",
+                      border: "1px solid rgba(194,216,196,0.45)",
+                      opacity: 0.9,
                     }}
                   />
-                  
-                  {/* Glass Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#c2d8c4]/20 to-transparent rounded-full blur-2xl" />
-                  
+
+                  <div className="absolute inset-0 bg-[#c2d8c4]/10 rounded-full blur-2xl" />
+
                   <img
                     src="/pic.png"
                     alt="Isaac Kariuki"
@@ -307,7 +290,8 @@ export function Hero() {
                       const parent = target.parentElement;
                       if (parent) {
                         const fallback = document.createElement("div");
-                        fallback.className = "w-full h-full rounded-full bg-gradient-to-br from-[#c2d8c4]/30 to-[#c2d8c4]/10 flex items-center justify-center";
+                        fallback.className =
+                          "w-full h-full rounded-full bg-[#c2d8c4]/20 flex items-center justify-center";
                         fallback.innerHTML = '<span class="text-7xl">👨‍💻</span>';
                         parent.appendChild(fallback);
                       }
@@ -315,24 +299,22 @@ export function Hero() {
                   />
                 </div>
               </div>
-              
-              {/* Floating Orbs */}
+
               <motion.div
                 animate={{ y: [0, -20, 0], x: [0, 15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-[#c2d8c4]/20 to-transparent rounded-2xl -z-10 blur-xl"
+                className="absolute -top-8 -right-8 w-24 h-24 bg-[#c2d8c4]/15 rounded-2xl -z-10 blur-xl"
               />
               <motion.div
                 animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-8 -left-8 w-28 h-28 bg-gradient-to-tr from-[#c2d8c4]/15 to-transparent rounded-full -z-10 blur-xl"
+                className="absolute -bottom-8 -left-8 w-28 h-28 bg-[#c2d8c4]/10 rounded-full -z-10 blur-xl"
               />
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -341,14 +323,14 @@ export function Hero() {
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 group cursor-pointer z-20"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] sm:text-xs text-gray-400 dark:text-white/40 tracking-wider font-mono">
+          <span className="text-[10px] sm:text-xs text-[#222222]/50 dark:text-[#c2d8c4]/40 tracking-wider font-mono">
             SCROLL
           </span>
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-300 dark:border-white/20 rounded-full flex items-start justify-center p-1">
+          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-[#222222]/30 dark:border-[#c2d8c4]/20 rounded-full flex items-start justify-center p-1">
             <motion.div
               animate={{ y: [0, 14, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-gradient-to-b from-[#c2d8c4] to-[#8fbc8f] rounded-full"
+              className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-[#c2d8c4] rounded-full"
             />
           </div>
         </div>
@@ -356,3 +338,4 @@ export function Hero() {
     </section>
   );
 }
+
