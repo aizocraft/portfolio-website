@@ -51,7 +51,7 @@ export function About() {
               {/* Main Image Container with Glassmorphism */}
               <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-2">
                 <img
-                  src="/about.png"
+                  src="/isaac_image.jpg"
                   alt="Isaac Kariuki - Full Stack Developer"
                   className="w-full max-w-md lg:max-w-full h-auto object-contain rounded-xl relative z-10 transition-transform duration-500 group-hover:scale-105"
                   style={{ filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.1))" }}

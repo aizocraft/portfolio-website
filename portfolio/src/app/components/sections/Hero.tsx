@@ -280,7 +280,7 @@ export function Hero() {
                   <div className="absolute inset-0 bg-[#c2d8c4]/10 rounded-full blur-2xl" />
 
                   <img
-                    src="/pic.png"
+                    src="/isaac_potrait.jpg"
                     alt="Isaac Kariuki"
                     className="w-full h-full object-contain drop-shadow-2xl relative z-10 rounded-full"
                     loading="eager"
