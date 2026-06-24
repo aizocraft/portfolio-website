@@ -21,7 +21,7 @@ export function Footer() {
     { icon: Github, href: "https://github.com/aizocraft", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/kariuki-isaac", label: "LinkedIn" },
     { icon: Twitter, href: "https://x.com/aizotech", label: "Twitter" },
-    { icon: Mail, href: "mailto:kariukiisaac911@gmail.com", label: "Email" },
+    { icon: Mail, href: "mailto:isaacngatho.dev@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
@@ -34,7 +34,7 @@ export function Footer() {
   const contactInfo = [
     { icon: MapPin, text: "Nairobi, Kenya" },
     { icon: Phone, text: "+254 741 653 862" },
-    { icon: Mail, text: "kariukiisaac911@gmail.com" },
+    { icon: Mail, text: "isaacngatho.dev@gmail.com" },
   ];
 
   return (

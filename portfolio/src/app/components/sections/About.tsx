@@ -128,11 +128,7 @@ export function About() {
                 <span className="text-[#222222] dark:text-white font-medium"> high-performance web applications </span> 
                 and <span className="text-[#222222] dark:text-white font-medium">robust network infrastructure</span>.
               </p>
-              <p className="leading-relaxed text-base display:none">
-                I build with <span className="text-[#222222] dark:text-white font-medium">Laravel, React, and Node.js</span>, choosing the right database for each job — 
-                <span className="text-[#222222] dark:text-white font-medium"> PostgreSQL, MongoDB, MySQL, or Redis</span>. 
-                My networking background (TCP/IP, DNS, routing) means I don't just write code — I architect systems that stay online, fast, and secure.
-              </p>
+
               <p className="leading-relaxed text-base">
                 Whether you need a scalable API, a responsive dashboard, or complete infrastructure setup, 
                 I deliver production-ready solutions that businesses trust.

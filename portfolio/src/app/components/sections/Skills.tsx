@@ -127,9 +127,7 @@ export function Skills() {
             Skills & Technologies
           </h2>
           <div className="w-16 h-0.5 bg-[#c2d8c4] mx-auto mb-4" />
-          <p className="text-[#222222]/60 dark:text-white/60 max-w-2xl mx-auto text-sm sm:text-base display: none">
-            Comprehensive toolkit for building modern, scalable applications
-          </p>
+
         </motion.div>
 
         {/* Skills Grid */}

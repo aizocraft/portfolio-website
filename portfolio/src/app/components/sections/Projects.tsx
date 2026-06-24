@@ -443,18 +443,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-2 py-3 border-y border-[#c2d8c4]/20 dark:border-[#c2d8c4]/10 display:none">
-          {project.stats.map((stat, statIndex) => (
-            <div key={statIndex} className="text-center">
-              <div className="flex justify-center mb-1 text-[#c2d8c4]">
-                {getIcon(stat.icon, "w-4 h-4")}
-              </div>
-              <p className="text-base font-bold text-[#222222] dark:text-white">{stat.value}</p>
-              <p className="text-xs text-[#222222]/50 dark:text-white/40">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+
 
         {/* Technologies */}
         <div>
