@@ -111,19 +111,6 @@ export function Hero() {
               </h2>
             </motion.div>
 
-            {/* Main Value Proposition */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#222222] dark:text-[#c2d8c4] leading-tight">
-                Building Secure &amp; Scalable
-                <br />
-                <span className="text-[#c2d8c4]">Digital Products.</span>
-              </h3>
-            </motion.div>
-
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
