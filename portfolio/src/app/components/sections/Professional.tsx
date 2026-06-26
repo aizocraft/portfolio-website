@@ -18,20 +18,21 @@ interface Experience {
 }
 
 const experiences: Experience[] = [
-  {
-    id: 1,
-    company: "Codveda Solutions",
-    role: "Intern Software Engineer",
-    period: "Feb 2026 – PRESENT",
-    location: "Remote",
-    achievements: [
-      "django development",
-      "React development",
-      "AI development"
-    ],
-    link: "https://aizocraft.com",
-    highlight: true
-  },
+ // {
+   // id: 1,
+  //  company: "Codveda Solutions",
+   // role: "Intern Software Engineer",
+//    period: "Feb 2026 – PRESENT",
+  //  location: "Remote",
+    //achievements: [
+   //   
+     // "django development",
+ //     "React development",
+//      "AI development"
+ //   ],
+ //   link: "https://aizocraft.com",
+  //  highlight: true
+ // },
   {
     id: 2,
     company: "Embu Level 5 Hospital",
@@ -243,7 +244,8 @@ const Professional: React.FC = () => {
   const [hoveredDot, setHoveredDot] = useState<number | null>(null);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-[#c2d8c4]/5 to-white dark:from-[#1a1a1a] dark:via-[#222222]/20 dark:to-[#1a1a1a] relative overflow-hidden">
+   <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#222222] relative overflow-hidden">
+      
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
